@@ -1,0 +1,210 @@
+ 
+
+/* General body and container styling */
+:root {
+    --primary-color: #00e5ff; /* Cyan blue for highlights */
+    --secondary-color: #3f51b5; /* Deep purple/blue for accents */
+    --background-color: #0d1117; /* GitHub-style dark background */
+    --card-color: #161b22; /* Slightly lighter dark for cards */
+    --text-color: #c9d1d9; /* Light gray text */
+    --border-color: #30363d;
+    --success-color: #3fb950;
+    --error-color: #f85149;
+}
+​
+body {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 1rem;
+    position: relative; /* For the animated grid */
+}
+​
+/* Background grid animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveGrid 30s linear infinite;
+    z-index: -1;
+}
+​
+@keyframes moveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+​
+.container {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.1);
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    animation: fadeIn 1s forwards;
+    z-index: 1;
+}
+​
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+​
+/* Typography and headings */
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    letter-spacing: 1.5px;
+}
+​
+h1::before {
+    content: '⚡'; /* Electric feel */
+    margin-right: 10px;
+}
+​
+p {
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+​
+/* Input and button styling */
+.input-section, .output-section, .retry-section {
+    margin-bottom: 2rem;
+    padding: 2.5rem;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+​
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+​
+textarea {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+}
+​
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+}
+​
+button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 229, 255, 0.3);
+    text-transform: uppercase;
+}
+​
+button:hover {
+    background-color: #00b8d4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 229, 255, 0.5);
+}
+​
+button:active {
+    transform: translateY(0);
+}
+​
+/* Output section styling */
+.match-pair, .unmatched-user {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+​
+.match-pair {
+    border-left: 5px solid var(--success-color);
+    color: var(--success-color);
+}
+​
+.match-pair:hover {
+    transform: translateX(5px);
+    box-shadow: 5px 0 15px rgba(63, 185, 80, 0.2);
+}
+​
+.unmatched-user {
+    border-left: 5px solid var(--error-color);
+    color: var(--error-color);
+}
+​
+.unmatched-user:hover {
+    transform: translateX(5px);
+    box-shadow: 5px 0 15px rgba(248, 81, 73, 0.2);
+}
+​
+#status-message {
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+}
+​
+/* Additional button styling */
+.retry-section button {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(63, 81, 181, 0.2);
+}
+​
+.retry-section button:hover {
+    background-color: #303f9f;
+    box-shadow: 0 6px 15px rgba(63, 81, 181, 0.3);
+}
+
+
+
+
