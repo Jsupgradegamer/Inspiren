@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break Time Matcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Break Time Matcher ☕</h1>
+        <p>एक ही बार में सभी नाम और ब्रेक टाइम पेस्ट करें, हर लाइन पर एक।</p>
+​
+        <div class="input-section" id="initial-input">
+            <label for="namesInput">सभी नाम पेस्ट करें (हर लाइन पर एक):</label>
+            <textarea id="namesInput" rows="10" placeholder="उदाहरण:&#10;अमन&#10;प्रिया&#10;राहुल&#10;..."></textarea>
+​
+            <label for="timesInput">सभी ब्रेक टाइम पेस्ट करें (हर लाइन पर एक):</label>
+            <textarea id="timesInput" rows="10" placeholder="उदाहरण:&#10;10:30&#10;11:00&#10;10:30&#10;..."></textarea>
+            
+            <button onclick="greet()">Match Partners</button>
+        </div>
+​
+        <div class="output-section" id="results" style="display:none;">
+            <h2>Matching Results</h2>
+            <div id="matches"></div>
+            <div id="unmatched"></div>
+            <div id="status-message"></div>
+        </div>
+​
+        <div class="retry-section" id="options" style="display:none;">
+            <h2>Choose an option:</h2>
+            <button onclick="greet()">1 - Recheck same data</button>
+            <button onclick="startOver()">2 - Start over with new user list</button>
+            <button onclick="exitApp()">Exit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
