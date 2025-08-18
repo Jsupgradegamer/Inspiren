@@ -2,6 +2,12 @@ let names = [];
 let times = [];
 
 // यह फंक्शन सीधे टेक्स्ट एरिया से डेटा लेता है
+const loggedInUser = sessionStorage.getItem('user');
+
+        if (!loggedInUser || loggedInUser !== 'harshit') {
+            // If local storage is empty or the user is not 'harshit', redirect to login page.
+            window.location.href = 'hi.html'; // Assuming the login file is named login.html
+        }
 function greet() {
     // टेक्स्ट एरिया से नाम और समय की स्ट्रिंग प्राप्त करें
     const namesString = document.getElementById('namesInput').value.trim();
